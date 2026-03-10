@@ -1,165 +1,36 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/8NpkA7e4)
-[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-2e0aaae1b6195c2367325f4f02e2d04e9abb55f0b24a779b69b11b9e10269abc.svg)](https://classroom.github.com/online_ide?assignment_repo_id=22875660&assignment_repo_type=AssignmentRepo)
-# Assignment 1: Responsive Portfolio Website
+Name: Christopher Banda Student ID: 2022048971
 
-**Course:** CSC4035 Web Programming and Technologies
-**Weight:** 5% of final grade
-**Due:** Week 6, Friday 11:59 PM
+## Design Theme
 
----
+The portfolio follows a **warm dark editorial** aesthetic — a deliberate contrast between a deep navy-black hero section and warm off-white content sections. The goal was to feel professional and modern without being cold or generic.
 
-## Overview
+**Color Palette:** The primary background is a warm off-white (`#fafaf8`) with a complementary warm beige (`#f0ede8`) used to alternate section backgrounds and create visual rhythm. The hero section uses a near-black deep navy (`#0f0f1a`) to create a strong first impression. The accent color is a bold terracotta-red (`#e8533a`), used consistently for buttons, hover states, section underlines, and the profile image border — tying the whole design together.
 
-Create a professional, responsive portfolio website showcasing your skills, projects, and contact information. This assignment assesses your HTML5 and CSS3 skills, including semantic markup, modern layout techniques (Flexbox/Grid), and responsive design principles.
+**Typography:** Two Google Fonts are paired intentionally. *Syne* (an angular, geometric display font) is used for all headings, the logo, navigation, and buttons — giving the portfolio a distinctive, modern edge. *DM Sans* (a clean, humanist sans-serif) is used for body text, ensuring comfortable readability across all sections.
 
-**Important:** No CSS frameworks (Bootstrap, Tailwind, etc.) are allowed. All CSS must be hand-written.
+**Layout:** The hero section uses Flexbox to center content both vertically and horizontally, filling the full viewport height for a strong landing. The About section uses CSS Grid to place the profile image beside the biography text on larger screens, stacking vertically on mobile. The Projects section uses a CSS Grid that scales from 1 column (mobile) to 2 columns (tablet) to 3 columns (desktop).
+
+**Details & Interactions:** Section headings each have a short terracotta underline accent created with a CSS `::after` pseudo-element. Project cards lift slightly on hover with a box-shadow transition. Skill badges highlight in the primary color on hover. The navigation becomes a hamburger menu on mobile, animating into an × icon when open. A subtle animated scroll indicator on the hero section guides users downward.
 
 ---
 
-## Requirements
+## Challenges & Solutions
 
-### Functional Requirements
+**Challenge 1: Mobile Navigation Overflow**
+On small screens (375px), the horizontal navigation links overflowed the header. The solution was to implement a hamburger menu that hides the nav links by default on mobile and toggles them open as a full-width dropdown using JavaScript and a `.nav__menu--open` class. The button animates between ☰ and × using CSS transforms.
 
-Your portfolio must include **4 or more sections**:
+**Challenge 2: Responsive CSS Grid for About Section**
+Making the about section switch from a stacked single-column layout on mobile to a side-by-side image-and-text layout on tablet required careful use of CSS Grid with `grid-template-columns: 1fr` on mobile and `grid-template-columns: 240px 1fr` at the 768px breakpoint.
 
-| Section | Required Content |
-|---------|------------------|
-| **Home/Hero** | Your name, tagline, and call-to-action button |
-| **About** | Professional bio (150+ words), profile image, skills list |
-| **Projects** | Minimum 3 project cards with title, description, image, and links |
-| **Contact** | Contact form with validation attributes (name, email, message) |
-
-### Technical Requirements
-
-| Requirement | Description |
-|-------------|-------------|
-| **HTML5** | Valid semantic HTML (header, nav, main, section, article, footer) |
-| **CSS3** | External stylesheet only (no inline styles) |
-| **CSS Variables** | Use custom properties for colors and spacing |
-| **Flexbox** | Use for at least one layout component |
-| **CSS Grid** | Use for at least one layout component |
-| **Responsive** | Mobile-first with minimum 3 breakpoints |
-| **Accessibility** | Alt text, form labels, color contrast, heading hierarchy |
-
-### Breakpoints Required
-
-```css
-/* Mobile-first base styles */
-
-/* Tablet (768px and up) */
-@media (min-width: 768px) { }
-
-/* Desktop (1024px and up) */
-@media (min-width: 1024px) { }
-
-/* Large Desktop (1200px and up) - optional */
-@media (min-width: 1200px) { }
-```
+**Challenge 3: Maintaining Visual Consistency Across Breakpoints**
+Ensuring typography, spacing, and section headings scaled well across all four breakpoints required defining all sizes as CSS custom properties in `:root` and overriding only what needed to change inside each media query, rather than rewriting styles from scratch.
 
 ---
 
-## Project Structure
+## Credits
 
-```
-csc4035-assignment1-portfolio/
-├── index.html          # Main HTML file
-├── css/
-│   └── styles.css      # Main stylesheet
-├── images/             # Your images (profile, projects, etc.)
-├── screenshots/        # Screenshots at different breakpoints
-│   ├── mobile.png
-│   ├── tablet.png
-│   └── desktop.png
-└── README.md           # This file (update with your info)
-```
-
----
-
-## Getting Started
-
-1. **Clone this repository** to your local machine
-2. **Open `index.html`** in your code editor
-3. **Complete the TODO comments** in each file
-4. **Test responsiveness** using browser developer tools
-5. **Take screenshots** at mobile, tablet, and desktop sizes
-6. **Commit and push** your changes regularly
-
----
-
-## Grading Rubric (100 points)
-
-| Criterion | Points | Description |
-|-----------|--------|-------------|
-| **HTML Structure & Semantics** | 20 | Valid HTML5, semantic elements, proper document structure |
-| **CSS Styling & Design** | 20 | Professional design, cohesive color scheme, typography |
-| **Flexbox & Grid Usage** | 20 | Both techniques used appropriately and effectively |
-| **Responsive Design** | 20 | Mobile-first, 3+ breakpoints, no horizontal scrolling |
-| **Content & Completeness** | 10 | All sections complete with quality content |
-| **Code Quality** | 10 | Clean, organized, well-commented code |
-
-### Automated Tests (40% of grade)
-
-The following are checked automatically on each push:
-- HTML validation (no errors)
-- Required HTML elements present
-- CSS file linked correctly
-- Required sections exist
-- Responsive meta tag present
-
----
-
-## Submission Checklist
-
-Before submitting, verify:
-
-- [ ] All 4 sections are complete (Home, About, Projects, Contact)
-- [ ] HTML validates with no errors
-- [ ] CSS uses custom properties (variables)
-- [ ] Flexbox is used for at least one component
-- [ ] CSS Grid is used for at least one component
-- [ ] Site is responsive at all breakpoints
-- [ ] All images have alt text
-- [ ] Form inputs have labels
-- [ ] Screenshots added to `/screenshots` folder
-- [ ] README updated with your information
-
----
-
-## Your Information
-
-**Name:** [Your Name]
-**Student ID:** [Your Student ID]
-**Design Theme:** [Describe your portfolio theme/style]
-
-### CSS Techniques Used
-- [ ] CSS Custom Properties
-- [ ] Flexbox
-- [ ] CSS Grid
-- [ ] Media Queries
-- [ ] Other: _______________
-
-### Challenges & Solutions
-[Describe any challenges you faced and how you solved them]
-
-### Credits
-[List any images, fonts, or resources used with attribution]
-
----
-
-## Academic Integrity
-
-- All code must be your own work
-- No CSS frameworks or libraries allowed
-- Images must be royalty-free or your own (credit sources)
-- Plagiarism detection tools will be used
-
-**Violations result in zero marks and academic misconduct reporting.**
-
----
-
-## Extension Opportunities (Bonus: up to +10%)
-
-- Dark/light mode toggle with CSS (+3%)
-- CSS animations/transitions (+3%)
-- CSS-only hamburger menu (+2%)
-- Print stylesheet (+2%)
+- **Fonts:** [Syne](https://fonts.google.com/specimen/Syne) and [DM Sans](https://fonts.google.com/specimen/DM+Sans) via Google Fonts (open source, SIL Open Font License)
+- **Project images:** `aa.jpg`, `bb.jpeg`, `cc.jpg` — provided by student
+- **Profile image:** `chris.jpg`
+- **Color inspiration:** Custom palette designed for this project
+- **No CSS frameworks used** — all styles written from scratch
